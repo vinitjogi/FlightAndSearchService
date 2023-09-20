@@ -1,3 +1,5 @@
+const { Op } = require('sequelize'); // requiring Op parameter from sequelize package inoreder 
+// to implement search functionality.
 const { City } = require('../models/index');
 
 class CityRepository{
@@ -56,8 +58,19 @@ class CityRepository{
 
     }
 
-    async getAllCities(){
+    async getAllCities(filter){ // filter can be empty also
         try {
+            console.log(filter);
+            if(filter.name){
+                const cities = await City.findAll({
+                    where : {
+                        name :{
+                            [Op.startsWith] : filter.name
+                        }
+                    }
+                });
+                return cities;
+            }
             const cities = await City.findAll();
             return cities;
         } catch (error) {
