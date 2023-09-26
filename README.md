@@ -38,3 +38,9 @@
 ## npm packages
     -mysql2 => used for connecting mysql server with sequelize
     -sequelize => setting up database connection for our application (ORM for rdbms ) 
+
+
+## tables
+    ### City -> id, name, created_at, updates_at
+    ### Airport -> id, name, address, city_id, created_at, updates_at
+        Relationship : City can have many airport, airport belongs to one city (one to many) 
