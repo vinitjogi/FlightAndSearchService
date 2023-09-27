@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const { PORT } = require('./config/serverConfig');
 const apiRoutes = require('./routes/index');
 const db = require('./models/index');
-const { City, Airports } = require('./models/index')
+
+// const { City, Airports } = require('./models/index')
 // const CityRepository = require('./repository/city-repository')
 const setupAndStartServer = async () => {
 
@@ -25,6 +26,7 @@ const setupAndStartServer = async () => {
             db.sequelize.sync({alter : true});
         }
 
+        
     });
 }
 
